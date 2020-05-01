@@ -21,4 +21,10 @@ pool
     console.error(error)
   })
 
-module.exports = pool
+exports.execute = async (query) => {
+  try {
+    return await pool.query(query)
+  } catch (error) {
+    throw error
+  }
+}
